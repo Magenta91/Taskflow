@@ -4,6 +4,14 @@ import { ColumnRepository } from "../repositories/column.repository";
 import { TaskRepository } from "../repositories/task.repository";
 
 function seed() {
+  // Only seed if database is empty (idempotent — safe for production restarts)
+  const { count } = db.prepare("SELECT COUNT(*) as count FROM boards").get() as { count: number };
+  if (count > 0) {
+    console.log("Database already has data — skipping seed.");
+    db.close?.();
+    process.exit(0);
+  }
+
   // Wipe existing data so this script is safe to re-run.
   db.exec("DELETE FROM tasks; DELETE FROM columns; DELETE FROM boards;");
   db.exec("DELETE FROM sqlite_sequence WHERE name IN ('tasks','columns','boards');");

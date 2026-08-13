@@ -77,7 +77,7 @@ Tests: `cd backend && npm test`
 
 ## Time spent
 
-~[X] hours: schema + repository/service layer, task API + validation, frontend (board/modal/filter/DnD), tests, and deployment.
+~[5] hours: approach research & finalize + schema + repository/service layer, task API + validation, frontend (board/modal/filter/DnD), tests, and deployment.
 
 ## Something interesting
 

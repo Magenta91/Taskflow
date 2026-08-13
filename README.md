@@ -169,6 +169,5 @@ file like this.
   free tier has an ephemeral filesystem, so the SQLite file resets on redeploy/restart
   unless you attach a persistent disk (Render supports this on paid plans) — worth
   flagging if long-term data persistence in production matters.
-- **Frontend → Vercel or Netlify** (not Streamlit — Streamlit is a Python data-app
-  framework and can't serve a Vite/React build). Set `VITE_API_URL` to the deployed
+- **Frontend →  Netlify**  Set `VITE_API_URL` to the deployed
   backend's `/api` URL as a build-time environment variable.
